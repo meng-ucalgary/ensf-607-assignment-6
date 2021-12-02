@@ -26,7 +26,22 @@ class MainMenu extends React.Component {
                     <a href="/animals" class="btn btn-primary">Go</a>
                 </div>
             </div>
+            <div class="card" style={this.styles}>
+                <img class="card-img-top" src="https://picsum.photos/200" alt="Card image cap"/>
+                <div class="card-body">
+                    <h5 class="card-title">Request Submission</h5>
+                    <a href="/requestsubmission" class="btn btn-primary">Go</a>
+                </div>
             </div>
+            <div class="card" style={this.styles}>
+                <img class="card-img-top" src="https://picsum.photos/200" alt="Card image cap"/>
+                <div class="card-body">
+                    <h5 class="card-title">Request Management</h5>
+                    <a href="/requestmanagment" class="btn btn-primary">Go</a>
+                </div>
+            </div>
+            </div>
+            
 
 
 

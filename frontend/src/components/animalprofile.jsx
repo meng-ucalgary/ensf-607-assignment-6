@@ -5,6 +5,12 @@ import ReactApexChart from 'react-apexcharts';
 import {useParams} from "react-router-dom";
 import { withRouter } from "react-router";
 import NavBar from './navbar';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 class AnimalProfile extends React.Component {
     state = {
@@ -18,9 +24,15 @@ class AnimalProfile extends React.Component {
         
     };
 
-    async componentDidMount() {
+    styles = {
+        width: 18+'rem'
         
-        const {data: posts} = await axios.get('http://localhost:8080/api/v1/animals/1', {headers: {'Access-Control-Allow-Origin': true,},});
+
+    };
+
+    async componentDidMount() {
+        const id = this.props.match.params.id;
+        const {data: posts} = await axios.get('http://localhost:8080/api/v1/animals/'+{id}, {headers: {'Access-Control-Allow-Origin': true,},});
         
         this.setState({posts});
         
@@ -195,9 +207,9 @@ class AnimalProfile extends React.Component {
                 </div> 
                 <div class="row">
                 <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary">Treat List</button>
-                <button type="button" class="btn btn-secondary">Issue List</button>
-                <button type="button" class="btn btn-secondary">Comment List</button>
+                <td><Link to={"/animals/"+this.state.animal["animalId"].toString()} className="btn btn-secondary">Treatment List</Link></td>
+                <td><Link to={"/animals/"+this.state.animal["animalId"].toString()} className="btn btn-secondary">Issue List</Link></td>
+                <td><Link to={"/animals/"+this.state.animal["animalId"].toString()+"/comments"} className="btn btn-secondary">Comment List</Link></td>
                 </div>
 
                 </div>   
