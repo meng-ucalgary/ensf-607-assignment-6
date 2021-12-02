@@ -24,6 +24,7 @@ const animals = [
         "coatColor": "Black",
         "continuousMedication": "N/A",
         "animalPhotoList": [],
+        "animalCommentList": [{"commentid": 1, "commentdesc": "this is good", "date": "Nov 1, 2021"}, {"commentid": 2, "commentdesc": "this is rad", "date": "Nov 2, 2021"}, {"commentid": 3, "commentdesc": "this is bad", "date": "Nov 3, 2021"}],
         "animalTreatmentList": [{"id": 1,"date": "Nov 1, 2021", "description": "It went well"},{"id": 2,"date": "Nov 2, 2021", "description": "It went not so well"}],
         "animalIssueList": [],
         "age": 0
@@ -53,6 +54,7 @@ const animals = [
         "coatColor": "Brown",
         "continuousMedication": "N/A",
         "animalPhotoList": [],
+        "animalCommentList": [{"commentid": 1, "commentdesc": "this is good", "date": "Nov 1, 2021"}, {"commentid": 2, "commentdesc": "this is rad", "date": "Nov 2, 2021"}, {"commentid": 3, "commentdesc": "this is bad", "date": "Nov 3, 2021"}],
         "animalTreatmentList": [],
         "animalIssueList": [],
         "age": 0
@@ -82,6 +84,7 @@ const animals = [
         "coatColor": "Brown, White",
         "continuousMedication": "N/A",
         "animalPhotoList": [],
+        "animalCommentList": [{"commentid": 1, "commentdesc": "this is good", "date": "Nov 1, 2021"}, {"commentid": 2, "commentdesc": "this is rad", "date": "Nov 2, 2021"}, {"commentid": 3, "commentdesc": "this is bad", "date": "Nov 3, 2021"}],
         "animalTreatmentList": [],
         "animalIssueList": [],
         "age": 0
@@ -111,6 +114,7 @@ const animals = [
         "coatColor": "White",
         "continuousMedication": "N/A",
         "animalPhotoList": [],
+        "animalCommentList": [{"commentid": 1, "commentdesc": "this is good", "date": "Nov 1, 2021"}, {"commentid": 2, "commentdesc": "this is rad", "date": "Nov 2, 2021"}, {"commentid": 3, "commentdesc": "this is bad", "date": "Nov 3, 2021"}],
         "animalTreatmentList": [],
         "animalIssueList": [],
         "age": 0
@@ -122,7 +126,7 @@ const animals = [
         "breed": "Labrador retriever",
         "birthDate": "N/A",
         "sex": "0",
-        "status": "YELLOW",
+        "status": "PENDING_REQUEST",
         "theOwner": {
             "ownerId": 3,
             "firstName": "Clark",
@@ -140,6 +144,7 @@ const animals = [
         "coatColor": "White",
         "continuousMedication": "N/A",
         "animalPhotoList": [],
+        "animalCommentList": [{"commentid": 1, "commentdesc": "this is good", "date": "Nov 1, 2021"}, {"commentid": 2, "commentdesc": "this is rad", "date": "Nov 2, 2021"}, {"commentid": 3, "commentdesc": "this is bad", "date": "Nov 3, 2021"}],
         "animalTreatmentList": [],
         "animalIssueList": [],
         "age": 0
@@ -151,7 +156,7 @@ const animals = [
         "breed": "Wire Fox Terrier",
         "birthDate": "N/A",
         "sex": "1",
-        "status": "GREEN",
+        "status": "ACCEPTED_BY_ADMIN",
         "theOwner": {
             "ownerId": 4,
             "firstName": "Tintin",
@@ -169,6 +174,7 @@ const animals = [
         "coatColor": "White",
         "continuousMedication": "N/A",
         "animalPhotoList": [],
+        "animalCommentList": [{"commentid": 1, "commentdesc": "this is good", "date": "Nov 1, 2021"}, {"commentid": 2, "commentdesc": "this is rad", "date": "Nov 2, 2021"}, {"commentid": 3, "commentdesc": "this is bad", "date": "Nov 3, 2021"}],
         "animalTreatmentList": [],
         "animalIssueList": [],
         "age": 0
@@ -180,7 +186,7 @@ const animals = [
         "breed": "Abyssinian",
         "birthDate": "N/A",
         "sex": "1",
-        "status": "YELLOW",
+        "status": "TECHNICIAN_APPROVAL",
         "theOwner": {
             "ownerId": 3,
             "firstName": "Clark",
@@ -198,6 +204,7 @@ const animals = [
         "coatColor": "Orange",
         "continuousMedication": "N/A",
         "animalPhotoList": [],
+        "animalCommentList": [{"commentid": 1, "commentdesc": "this is good", "date": "Nov 1, 2021"}, {"commentid": 2, "commentdesc": "this is rad", "date": "Nov 2, 2021"}, {"commentid": 3, "commentdesc": "this is bad", "date": "Nov 3, 2021"}],
         "animalTreatmentList": [],
         "animalIssueList": [],
         "age": 0
@@ -211,6 +218,10 @@ export function getAnimals() {
 export function getAnimalbyId(id){
     return animals[id-1];
 
+}
+
+export function postAnimal(id, field, content){
+    animals[id-1][field] = content;
 }
 
 
