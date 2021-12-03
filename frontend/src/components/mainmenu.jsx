@@ -27,26 +27,32 @@ class MainMenu extends React.Component {
                 <NavBar user = {user}/>
                 <div class="row">
                 <div class="card" style={this.styles}>
+                <a href="/i/users">
                     <img class="card-img-top" src={this.state.userImageUrl} alt="Card image cap"/>
                     <div class="card-body">
                         <h5 class="card-title">User Management</h5>
-                        <a href="/i/users" class="btn btn-primary">Go</a>
+                        
                     </div>
+                    </a>
                 </div>
 
                 <div class="card" style={this.styles}>
+                <a href="/i/animals">
                     <img class="card-img-top" src={this.state.animalImageUrl} alt="Card image cap"/>
                     <div class="card-body">
                         <h5 class="card-title">Animal Management</h5>
-                        <a href="/i/animals" class="btn btn-primary">Go</a>
+                        
                     </div>
+                    </a>
                 </div>
                 <div class="card" style={this.styles}>
+                <a href="/i/requestsubmission">
                     <img class="card-img-top" src={this.state.submitImageUrl} alt="Card image cap"/>
                     <div class="card-body">
                         <h5 class="card-title">Request Submission</h5>
-                        <a href="/i/requestsubmission" class="btn btn-primary">Go</a>
+                        
                     </div>
+                    </a>
                 </div>
                 
                 </div>
@@ -58,28 +64,35 @@ class MainMenu extends React.Component {
             return <React.Fragment>
                 <NavBar user = {user}/>
                 <div class="row">
+                    
                 <div class="card" style={this.styles}>
+                    <a href="/a/users">
                     <img class="card-img-top" src={this.state.userImageUrl} alt="Card image cap"/>
                     <div class="card-body">
                         <h5 class="card-title">User Management</h5>
-                        <a href="/a/users" class="btn btn-primary">Go</a>
+                        
                     </div>
+                    </a>
                 </div>
 
                 <div class="card" style={this.styles}>
+                <a href="/a/animals">
                     <img class="card-img-top" src={this.state.animalImageUrl} alt="Card image cap"/>
                     <div class="card-body">
                         <h5 class="card-title">Animal Management</h5>
-                        <a href="/a/animals" class="btn btn-primary">Go</a>
+                        
                     </div>
+                    </a>
                 </div>
                 
                 <div class="card" style={this.styles}>
+                <a href="/a/requestmanagment">
                     <img class="card-img-top" src={this.state.requestImageUrl} alt="Card image cap"/>
                     <div class="card-body">
                         <h5 class="card-title">Request Management</h5>
-                        <a href="/a/requestmanagment" class="btn btn-primary">Go</a>
+                        
                     </div>
+                    </a>
                 </div>
                 </div>
             </React.Fragment>;
@@ -91,27 +104,33 @@ class MainMenu extends React.Component {
                 <NavBar user = {user}/>
                 <div class="row">
                 <div class="card" style={this.styles}>
+                <a href="/t/users">
                     <img class="card-img-top" src={this.state.userImageUrl} alt="Card image cap"/>
                     <div class="card-body">
                         <h5 class="card-title">User Management</h5>
-                        <a href="/t/users" class="btn btn-primary">Go</a>
+                        
                     </div>
+                    </a>
                 </div>
 
                 <div class="card" style={this.styles}>
+                <a href="/t/animals">
                     <img class="card-img-top" src={this.state.animalImageUrl} alt="Card image cap"/>
                     <div class="card-body">
                         <h5 class="card-title">Animal Management</h5>
-                        <a href="/t/animals" class="btn btn-primary">Go</a>
+                        
                     </div>
+                    </a>
                 </div>
                 
                 <div class="card" style={this.styles}>
+                <a href="/t/requestmanagment">
                     <img class="card-img-top" src={this.state.requestImageUrl} alt="Card image cap"/>
                     <div class="card-body">
                         <h5 class="card-title">Request Management</h5>
-                        <a href="/t/requestmanagment" class="btn btn-primary">Go</a>
+                        
                     </div>
+                    </a>
                 </div>
                 </div>
             </React.Fragment>;
