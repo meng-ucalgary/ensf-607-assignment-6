@@ -113,7 +113,7 @@ class RequestManagement extends React.Component {
         
         
         return <React.Fragment>
-                <NavBar key = {this.props.match.params.user}/>
+                <NavBar user = {user}/>
                 <div class="container">
                   
                 </div>

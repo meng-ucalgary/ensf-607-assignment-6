@@ -114,6 +114,8 @@ class RequestSubmission extends React.Component {
 
 
     render() { 
+      const user = this.props.match.params.user;
+
         let filtered = this.state.animals;
         if (this.state.filterOption == 1) {
           filtered = 1?this.state.animals.filter(m=>m["animalId"].toString().toLowerCase().includes(this.state.filterText.toLowerCase()) ):this.state.animals;
@@ -136,7 +138,7 @@ class RequestSubmission extends React.Component {
         
         
         return <React.Fragment>
-                <NavBar/>
+                <NavBar user = {user}/>
                 <div class="container">
                   
                 </div>
