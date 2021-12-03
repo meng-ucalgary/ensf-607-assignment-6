@@ -65,6 +65,7 @@ class Login extends React.Component {
     
     render() { 
         let hyperlink = ""
+        let errorMessage = ""
         if (this.state.username != "" && this.state.password !="") {
             for (var i=0; i<this.state.users.length; i++) {
                 //console.log(this.state.users[1]["emailId"])
@@ -73,6 +74,7 @@ class Login extends React.Component {
                 if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.password == this.state.users[i]["u_passwordhash"]) && (this.state.users[i]["role"] == "0")) {
                     console.log('Successful Login1');
                     hyperlink = "/i/menu" 
+                    
                 }
 
                 //role 1 is for admin
@@ -86,14 +88,17 @@ class Login extends React.Component {
                     console.log('Successful Login3');
                     hyperlink = "/t/menu" 
                 }
-                else{
-                    console.log("Else statment reached")
+                // else{
+                //     console.log("Else statment reached")
 
-                }
-                // else {
-                //     console.log("Incorrect credentials");
-                //     this.setState({errorMessage: "Incorrect credentials"});
                 // }
+                else {
+                    console.log("Incorrect credentials");
+                    errorMessage = "Current credentials are incorrect. Please continue.."
+                    //this.setState({errorMessage: "Incorrect credentials"});
+                    //alert("Hello friends, this is message.");
+                ;
+                }
                 
 
             }
@@ -120,9 +125,7 @@ class Login extends React.Component {
                                         <label class="form-control-label">Password</label>
                                         <input type="password" class="form-control" i onChange = {(e) => this.getPassword(e)}/>
                                     </div>
-                                    {/* <div class="error">
-                                        <h3>  { this.state.errorMessage } </h3> 
-                                    </div> */}
+                                    
                                     <div >
                                         <a href = {hyperlink} class="btn btn-primary">Login</a>
                                         {/* <a href="/menu" class="btn btn-primary">Login</a> */}
@@ -130,6 +133,9 @@ class Login extends React.Component {
                                         {/* <button type="submit" class="btn btn-primary" onClick = {(e) => this.verifyUser(e)} >Login</button> */}
                                         <button type="submit" class="btn btn-outline-primary">Forget Password</button>
                                         
+                                    </div>
+                                    <div class="error">
+                                        <h>  { errorMessage } </h> 
                                     </div>
                                 </form>
                             
