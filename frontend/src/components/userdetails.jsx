@@ -42,6 +42,7 @@ class UserDetails extends React.Component {
     }
 
     render() { 
+        const user = this.props.match.params.user;
         let label = "";
         if(this.state.user["role"]===0){
             label = "Student";
@@ -58,7 +59,7 @@ class UserDetails extends React.Component {
         }
 
         return <React.Fragment>
-            <NavBar/>
+            <NavBar user = {user}/>
             <div class="card" style={this.styles}>
                 
                 <div class="card-body">

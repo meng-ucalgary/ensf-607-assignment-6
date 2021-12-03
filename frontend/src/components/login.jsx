@@ -27,7 +27,7 @@ class Login extends React.Component {
                                     </div>
 
                                     <div >
-                                        <a href="/menu" class="btn btn-primary">Login</a>
+                                        <a href="/t/menu" class="btn btn-primary">Login</a>
                                         <button type="submit" class="btn btn-outline-primary">Forget Password</button>
                                         
                                     </div>

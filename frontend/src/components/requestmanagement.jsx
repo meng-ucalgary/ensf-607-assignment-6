@@ -45,7 +45,14 @@ class RequestManagement extends React.Component {
 
     handleAccept =(e, animal)=>{
         this.setState({alertmsg:"  Request is Accepted for: " + animal["name"]});
-        postAnimal(animal["animalId"], "status", "ACCEPTED_BY_ADMIN");
+        const user = this.props.match.params.user;
+        if(user == "t"){
+            postAnimal(animal["animalId"], "status", "TECHNICIAN_APPROVAL");
+
+        } else if(user =='a'){
+            postAnimal(animal["animalId"], "status", "ACCEPTED_BY_ADMIN");
+        }
+        
         this.setState({animals: getAnimals()});
   
   
@@ -85,15 +92,28 @@ class RequestManagement extends React.Component {
 
 
     render() { 
+        const user = this.props.match.params.user;
         let filtered = this.state.animals;
-        filtered = 1?this.state.animals.filter(m=>m["status"].toString().includes("PENDING_REQUEST") ):this.state.animals;
+        if(user == 't'){
+            filtered = 1?this.state.animals.filter(m=>m["status"].toString().includes("ACCEPTED_BY_ADMIN") ):this.state.animals;
+
+        }else if(user =='a'){
+            filtered = 1?this.state.animals.filter(m=>m["status"].toString().includes("PENDING_REQUEST") ):this.state.animals;
+        }
+
+        let alert = this.state.alertmsg;
+
+        if(filtered.length==0){
+            alert = "You have no more requests...";
+        }
+        
         
         
         
         
         
         return <React.Fragment>
-                <NavBar/>
+                <NavBar key = {this.props.match.params.user}/>
                 <div class="container">
                   
                 </div>
@@ -137,7 +157,7 @@ class RequestManagement extends React.Component {
         </table>
         <div class="row">
                       <div class="col-sm">
-                      {this.state.alertmsg}
+                      {alert}
                       </div>
                       <div class="col-sm">
                         

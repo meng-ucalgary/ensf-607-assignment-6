@@ -48,9 +48,11 @@ class CommentList extends React.Component {
  }
 
     render() { 
+        const user = this.props.match.params.user;
         console.log(this.state.animal["animalCommentList"]);
+
         return <React.Fragment>
-            <NavBar/>
+            <NavBar user = {user}/>
             <h2 class="display-4">Comment Logs</h2>
             <div class="row">
                     <div class="col-sm">

@@ -49,6 +49,7 @@ class UserManagement extends React.Component {
 
     render() { 
        console.log(this.state.users);
+       const userx = this.props.match.params.user;
         let filtered = this.state.users;
         if (this.state.filterOption == 1) {
             filtered = 1?this.state.users.filter(m=>m["userId"].toString().toLowerCase().includes(this.state.filterText.toLowerCase()) ):this.state.users;
@@ -66,7 +67,7 @@ class UserManagement extends React.Component {
             filtered = this.state.users;
           }
         return <React.Fragment>
-            <NavBar/>
+            <NavBar user = {userx}/>
             <div class="container">
                   
                   </div>
@@ -116,7 +117,7 @@ class UserManagement extends React.Component {
                       <td>{(user["emailId"]==null) ? 'na' : user["emailId"].toString()}</td>
                       <td>{(user["status"]==null) ? 'na' : user["status"].toString()}</td>
                       
-                      <td><Link to={"/users/"+user["userId"].toString()} className="btn btn-primary btn-sm">Details</Link></td>
+                      <td><Link to={"/"+userx+"/users/"+user["userId"].toString()} className="btn btn-primary btn-sm">Details</Link></td>
                       
                       </tr>
   

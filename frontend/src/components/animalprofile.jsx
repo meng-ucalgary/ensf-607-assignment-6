@@ -64,6 +64,7 @@ class AnimalProfile extends React.Component {
     }
 
     render() { 
+        const user = this.props.match.params.user;
         let weight = [];
         let dates = [];
         console.log(this.state.animal["weight"]);
@@ -120,7 +121,7 @@ class AnimalProfile extends React.Component {
 
 
         return <React.Fragment>
-            <NavBar/>
+            <NavBar user = {user}/>
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
@@ -207,9 +208,9 @@ class AnimalProfile extends React.Component {
                 </div> 
                 <div class="row">
                 <div class="btn-group" role="group" aria-label="Basic example">
-                <td><Link to={"/animals/"+this.state.animal["animalId"].toString()} className="btn btn-secondary">Treatment List</Link></td>
-                <td><Link to={"/animals/"+this.state.animal["animalId"].toString()} className="btn btn-secondary">Issue List</Link></td>
-                <td><Link to={"/animals/"+this.state.animal["animalId"].toString()+"/comments"} className="btn btn-secondary">Comment List</Link></td>
+                <td><Link to={"/"+user+"/animals/"+this.state.animal["animalId"].toString()+"/comments"} className="btn btn-secondary">Treatment List</Link></td>
+                <td><Link to={"/"+user+"/animals/"+this.state.animal["animalId"].toString()+"/comments"} className="btn btn-secondary">Issue List</Link></td>
+                <td><Link to={"/"+user+"/animals/"+this.state.animal["animalId"].toString()+"/comments"} className="btn btn-secondary">Comment List</Link></td>
                 </div>
 
                 </div>   
