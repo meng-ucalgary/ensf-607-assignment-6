@@ -12,8 +12,8 @@ import {
 } from "react-router-dom";
 class RequestManagement extends React.Component {
     state = {
-        //animals: [],
-        animals: getAnimals(),
+        animals: [],
+        //animals: getAnimals(),
         filterOption: 0,
         filterText: "",
         pageSize: 10,
@@ -78,9 +78,9 @@ class RequestManagement extends React.Component {
 
     async componentDidMount() {
         
-      //const {data: animals} = await axios.get('http://localhost:8080/api/v1/animals/', {headers: {'Access-Control-Allow-Origin': true,},});
+      const {data: animals} = await axios.get('http://localhost:8080/api/v1/animals/', {headers: {'Access-Control-Allow-Origin': true,},});
       
-      //this.setState({animals});
+      this.setState({animals});
 
       
           

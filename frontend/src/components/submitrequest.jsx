@@ -12,8 +12,8 @@ import {
 } from "react-router-dom";
 class RequestSubmission extends React.Component {
     state = {
-        //animals: [],
-        animals: getAnimals(),
+        animals: [],
+        //animals: getAnimals(),
         filterOption: 0,
         filterText: "",
         pageSize: 10,
@@ -49,7 +49,7 @@ class RequestSubmission extends React.Component {
       }else{
         this.setState({alertmsg:"  Request is awaiting approval for: " + animal["name"]});
         postAnimal(animal["animalId"], "status", "PENDING_REQUEST");
-        this.setState({animals: getAnimals()});
+        //this.setState({animals: getAnimals()});
 
       }
 
@@ -64,7 +64,7 @@ class RequestSubmission extends React.Component {
         this.setState({alertmsg:"  Request cancelled for: " + animal["name"]});
         postAnimal(animal["animalId"], "status", "GREEN");
         
-        this.setState({animals: getAnimals()});
+       // this.setState({animals: getAnimals()});
 
 
 
@@ -94,15 +94,15 @@ class RequestSubmission extends React.Component {
       
 
       
-      this.setState({animals: getAnimals()});
+      //this.setState({animals: getAnimals()});
 
     };
 
     async componentDidMount() {
         
-      //const {data: animals} = await axios.get('http://localhost:8080/api/v1/animals/', {headers: {'Access-Control-Allow-Origin': true,},});
+      const {data: animals} = await axios.get('http://localhost:8080/api/v1/animals/', {headers: {'Access-Control-Allow-Origin': true,},});
       
-      //this.setState({animals});
+      this.setState({animals});
 
       
           

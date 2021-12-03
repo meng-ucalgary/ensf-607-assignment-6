@@ -38,29 +38,30 @@ class Login extends React.Component {
         let errorMessage = ""
         if (this.state.username != "" && this.state.password != "") {
             for (var i = 0; i < this.state.users.length; i++) {
-                //console.log(this.state.users[1]["emailId"])
+                console.log("User: "+ this.state.users[i]["emailId"] + "  password: " +this.state.users[i]["passwordHash"]);
+                
 
                 //role 0 is for instructor
-                if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.password == this.state.users[i]["u_passwordhash"]) && (this.state.users[i]["role"] == "0")) {
+                if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.password == this.state.users[i]["passwordHash"]) && (this.state.users[i]["role"] == "TEACHER")) {
                     console.log('Successful Login1');
                     hyperlink = "/i/menu"
 
                 }
 
                 //role 1 is for admin
-                else if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.password == this.state.users[i]["u_passwordhash"]) && (this.state.users[i]["role"] == "1")) {
+                else if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.password == this.state.users[i]["passwordHash"]) && (this.state.users[i]["role"] == "ADMIN")) {
                     console.log('Successful Login2');
                     hyperlink = "/a/menu"
                 }
 
                 //role 2 is for technician
-                else if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.password == this.state.users[i]["u_passwordhash"]) && (this.state.users[i]["role"] == "2")) {
+                else if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.password == this.state.users[i]["passwordHash"]) && (this.state.users[i]["role"] == "TECHNICIAN")) {
                     console.log('Successful Login3');
                     hyperlink = "/t/menu"
                 }
                 else {
                     console.log("Incorrect credentials");
-                    errorMessage = "Updating.. Click Login when full credentials entered"
+                    errorMessage = "Click Login when full credentials entered"
                         //this.setState({errorMessage: "Incorrect credentials"});
                         ;
                 }
