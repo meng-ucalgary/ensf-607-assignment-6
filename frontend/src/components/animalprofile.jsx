@@ -102,8 +102,8 @@ class AnimalProfile extends React.Component {
 
 
         return <React.Fragment>
-            {/* <NavBar user={user} /> */}
-            <NavBar />
+            <NavBar user={user} /> 
+            
             <div class="container">
                 <div class="row">
                     <div class="col-sm">

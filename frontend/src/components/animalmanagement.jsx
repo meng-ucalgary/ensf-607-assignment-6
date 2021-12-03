@@ -60,11 +60,11 @@ class AnimalManagement extends React.Component {
         }
 
         // console.log(filtered);
-        // const user = this.props.match.params.user;
+         const user = this.props.match.params.user;
 
         return <React.Fragment>
-            {/* <NavBar user={user} /> */}
-            <NavBar />
+            <NavBar user={user} /> 
+            
             <div class="container">
             </div>
 
@@ -105,7 +105,7 @@ class AnimalManagement extends React.Component {
                             <td>{(animal["ownerEmail"] == null) ? 'na' : animal["ownerEmail"].toString()}</td>
                             <td>{(animal["status"] == null) ? 'na' : animal["status"].toString()}</td>
                             {/* <td><Link to={"/" + user + "/animals/" + animal["animalId"].toString()} className="btn btn-primary btn-sm">Details</Link></td> */}
-                            <td><Link to={"/animals/" + animal["animalId"].toString()} className="btn btn-primary btn-sm">Details</Link></td>
+                            <td><Link to={"/"+user + "/animals/" + animal["animalId"].toString()} className="btn btn-primary btn-sm">Details</Link></td>
                         </tr>
                     ))}
                 </tbody>

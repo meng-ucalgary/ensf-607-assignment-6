@@ -61,10 +61,17 @@ class RequestSubmission extends React.Component {
     handleCancel =(e, animal)=>{
       if(animal["status"]=="PENDING_REQUEST"|| animal["status"]=="ACCEPTED_BY_ADMIN"){
         
-        this.setState({alertmsg:"  Request cancelled for: " + animal["name"]});
-        postAnimal(animal["animalId"], "status", "GREEN");
         
-       // this.setState({animals: getAnimals()});
+        postAnimal(animal["animalId"], "status", "GREEN");
+        const status = { status: "GREEN" };
+        const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"];
+        const nanimals = this.state.animals;
+        //nanimals[animal["animalId"]-1]["status"] = "GREEN"
+        axios.put(link, status);
+        this.setState({alertmsg:"  Request cancelled for: " + animal["name"]});
+        
+        
+
 
 
 
