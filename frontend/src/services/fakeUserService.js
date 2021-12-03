@@ -40,10 +40,63 @@ const users = [
         u_passwordhash: "passw0rd",
         u_passwordsalt: "what?",
         status: "1"
+    },
+    {
+        userId: 4,
+        joiningdate: "nov 1, 1111",
+        activationdate: "dec 2, 2111",
+        terminationdate: "N/A",
+        firstName: "This",
+        middleName: "is",
+        lastName: "test",
+        role: 0,
+        emailId: "Instructor_1",
+        u_passwordhash: "pt@123",
+        u_passwordsalt: "what?",
+        status: "1"
+    },
+    {
+        userId: 5,
+        joiningdate: "nov 1, 1111",
+        activationdate: "dec 2, 2111",
+        terminationdate: "N/A",
+        firstName: "This",
+        middleName: "is",
+        lastName: "test",
+        role: 1,
+        emailId: "Admin_1",
+        u_passwordhash: "pa",
+        u_passwordsalt: "what?",
+        status: "1"
+    },
+    {
+        userId: 6,
+        joiningdate: "nov 1, 1111",
+        activationdate: "dec 2, 2111",
+        terminationdate: "N/A",
+        firstName: "This",
+        middleName: "is",
+        lastName: "test",
+        role: 2,
+        emailId: "Technician",
+        u_passwordhash: "pe",
+        u_passwordsalt: "what?",
+        status: "1"
+    },
+    {
+        userId: 7,
+        joiningdate: "nov 1, 1111",
+        activationdate: "dec 2, 2111",
+        terminationdate: "N/A",
+        firstName: "This",
+        middleName: "is",
+        lastName: "test",
+        role: 0,
+        emailId: "1",
+        u_passwordhash: "1",
+        u_passwordsalt: "what?",
+        status: "1"
     }
-
-
-
 
 
 ];
