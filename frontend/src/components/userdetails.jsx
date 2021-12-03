@@ -35,7 +35,7 @@ class UserDetails extends React.Component {
     // }
 
     render() {
-        const user = this.props.match.params.user;
+        const userx = this.props.match.params.user;
         // let label = "";
 
         // if (this.state.user["role"] === 0) {
@@ -55,8 +55,8 @@ class UserDetails extends React.Component {
         // }
 
         return <React.Fragment>
-            {/* <NavBar user={user} /> */}
-            <NavBar />
+            <NavBar user={userx} />
+            
             <div class="card" style={this.styles}>
                 <div class="card-body">
                     <h5 class="card-title">User Details</h5>
