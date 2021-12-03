@@ -1,5 +1,3 @@
-
-
 import React, { useState, Component } from 'react';
 import NavBarStart from './navbarstart';
 import {getUsers} from './../services/fakeUserService';  
@@ -67,35 +65,38 @@ class Login extends React.Component {
     
     render() { 
         let hyperlink = ""
-
-        for (var i=0; i<this.state.users.length; i++) {
-           
-            //console.log(this.state.users[1]["emailId"])
-        
-            //role 0 is for instructor
-            if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.users[i]["password"] == this.state.users[i]["u_passwordhash"]) && (this.state.users[i]["role"] = "0")) {
-                console.log('Successful Login1');
-                hyperlink = "/i/menu" 
-            }
-
-            //role 1 is for admin
-            else if ((this.state.username == this.state.users["emailId"]) && (this.state.users["password"] == this.state.users["u_passwordhash"]) && (this.state.users[i]["role"] = "1")) {
-                console.log('Successful Login2');
-                hyperlink = "/a/menu" 
-            }
-
-            //role 2 is for technician
-            else if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.users[i]["password"] == this.state.users["u_passwordhash"]) && (this.state.users[i]["role"] = "2")) {   
-                console.log('Successful Login3');
-                hyperlink = "/t/menu" 
-            }
-
-            // else {
-            //     console.log("Incorrect credentials");
-            //     this.setState({errorMessage: "Incorrect credentials"});
-            // }
+        if (this.state.username != "" && this.state.password !="") {
+            for (var i=0; i<this.state.users.length; i++) {
+                //console.log(this.state.users[1]["emailId"])
             
+                //role 0 is for instructor
+                if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.password == this.state.users[i]["u_passwordhash"]) && (this.state.users[i]["role"] == "0")) {
+                    console.log('Successful Login1');
+                    hyperlink = "/i/menu" 
+                }
 
+                //role 1 is for admin
+                else if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.password == this.state.users[i]["u_passwordhash"]) && (this.state.users[i]["role"] == "1")) {
+                    console.log('Successful Login2');
+                    hyperlink = "/a/menu" 
+                }
+
+                //role 2 is for technician
+                else if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.password == this.state.users[i]["u_passwordhash"]) && (this.state.users[i]["role"] == "2")) { 
+                    console.log('Successful Login3');
+                    hyperlink = "/t/menu" 
+                }
+                else{
+                    console.log("Else statment reached")
+
+                }
+                // else {
+                //     console.log("Incorrect credentials");
+                //     this.setState({errorMessage: "Incorrect credentials"});
+                // }
+                
+
+            }
         }
  
         return <React.Fragment>
