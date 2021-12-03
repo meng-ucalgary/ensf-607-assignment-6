@@ -670,6 +670,10 @@ public class AnimalController {
                 animal.setStatus(a.getStatus());
             }
 
+            if(a.getRequestStatus() != null) {
+                animal.setRequestStatus(a.getRequestStatus());
+            }
+
             if(a.fetchTheOwner() != null) {
                 animal.setTheOwner(this.findUniqueOwner(a.fetchTheOwner()));
             }
