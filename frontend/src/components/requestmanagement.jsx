@@ -18,7 +18,7 @@ class RequestManagement extends React.Component {
         filterText: "",
         pageSize: 10,
         alertmsg:""
-        
+
 
     };
 
@@ -44,67 +44,67 @@ class RequestManagement extends React.Component {
     };
 
     handleAccept =(e, animal)=>{
-        
+
         const user = this.props.match.params.user;
         if(user == "t"){
-            //animal["status"]="TECHNICIAN_APPROVAL";   
-            const status = {"status": "TECHNICIAN_APPROVAL"};   
-            const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"]; 
+            //animal["status"]="TECHNICIAN_APPROVAL";
+            const status = {"status": "TECHNICIAN_APPROVAL"};
+            const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"];
             axios.put(link, status,{headers:{}});
             window.location.reload(false);
-            
+
         } else if(user =='a'){
-            //animal["status"]="ACCEPTED_BY_ADMIN";   
-            const status = {"status": "ACCEPTED_BY_ADMIN"};   
-            const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"]; 
+            //animal["status"]="ACCEPTED_BY_ADMIN";
+            const status = {"status": "ACCEPTED_BY_ADMIN"};
+            const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"];
             axios.put(link, status,{headers:{}});
             window.location.reload(false);
-            
+
         }
         this.setState({alertmsg:"  Request is Accepted for: " + animal["name"]});
-        
-  
-  
-        
-  
+
+
+
+
+
     };
 
     handleReject =(e, animal)=>{
         this.setState({alertmsg:"  Request is rejected for: " + animal["name"]});
-        //animal["status"]="GREEN";   
-        const status = {"status": "GREEN"};   
-        const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"]; 
+        //animal["status"]="GREEN";
+        const status = {"status": "GREEN"};
+        const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"];
         axios.put(link, status,{headers:{}});
         window.location.reload(false);
         this.setState({alertmsg:"  Request is rejected for: " + animal["name"]});
-        
-  
-  
-        
-  
+
+
+
+
+
     };
 
 
 
 
-    
+
 
     async componentDidMount() {
-        
+
       const {data: animals} = await axios.get('http://localhost:8080/api/v1/animals/', {headers: {'Access-Control-Allow-Origin': true,},});
-      
+
       this.setState({animals});
 
-      
-          
+
+
       //const promise = axios.get('https://jsonplaceholder.typicode.com/posts')
-      
+
   }
 
 
 
 
-    render() { 
+    render() {
         const user = this.props.match.params.user;
         let filtered = this.state.animals;
         if(user == 't'){
@@ -119,24 +119,24 @@ class RequestManagement extends React.Component {
         if(filtered.length==0){
             alert = "You have no more requests...";
         }
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
         return <React.Fragment>
                 <NavBar user = {user}/>
                 <div class="container">
-                  
+
                 </div>
-            
-            
-           
-                
-                
-                
-        
+
+
+
+
+
+
+
         <table className="table">
             <thead>
                 <tr>
@@ -154,18 +154,18 @@ class RequestManagement extends React.Component {
                     <td>{animal["animalId"].toString()}</td>
                     <td>{(animal["name"]==null) ? 'na' : animal["name"].toString()}</td>
                     <td>{(animal["breed"]==null) ? 'na' : animal["breed"].toString()}</td>
-                    <td>{(animal["theOwner"]==null) ? 'na' : animal["theOwner"]["emailId"].toString()}</td>
+                    <td>{(animal["ownerName"]==null) ? 'na' : animal["ownerName"].toString()}</td>
                     <td>{(animal["status"]==null) ? 'na' : animal["status"].toString()}</td>
-                    
+
                     <td><button onClick={(e) => this.handleAccept(e, animal)} className="btn btn-primary btn-sm">Accept</button><button onClick={(e) => this.handleReject(e, animal)} className="btn btn-primary btn-sm">Reject</button></td>
-                    
+
                     </tr>
 
                 ))}
-            
 
-                
-                
+
+
+
             </tbody>
         </table>
         <div class="row">
@@ -173,25 +173,25 @@ class RequestManagement extends React.Component {
                       {alert}
                       </div>
                       <div class="col-sm">
-                        
+
                       </div>
                       <div class="col-sm">
-                        
+
                       </div>
                       <div class="col-sm">
-                        
+
                       </div>
                       <div class="col-sm">
-                        
+
                       </div>
-                      
+
         </div>
-       
-        
+
+
 
       </React.Fragment>
         ;
     }
 }
- 
+
 export default RequestManagement;
