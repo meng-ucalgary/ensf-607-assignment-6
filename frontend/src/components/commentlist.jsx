@@ -39,12 +39,12 @@ class CommentList extends React.Component {
     // }
 
     render() {
-        // const user = this.props.match.params.user;
+        const user = this.props.match.params.user;
 
 
         return <React.Fragment>
-            {/* <NavBar user={user} /> */}
-            <NavBar />
+            <NavBar user={user} />
+            
             <h2 class="display-4">Comment Logs</h2>
             <div class="row">
                 <div class="col-sm">
@@ -76,7 +76,7 @@ class CommentList extends React.Component {
                                 <p>Log {comment["commentId"]}: {comment["commentDate"]}</p>
 
                                 <p>{comment["commentDesc"]}</p>
-                                <td><Link to={"/animals/" + this.state.animal["animalId"].toString()} className="btn btn-secondary btn-sm">Edit</Link><Link to={"/animals/" + this.state.animal["animalId"].toString()} className="btn btn-secondary btn-sm">Remove</Link></td>
+                                <td><Link to={"/"+{user}+"/animals/" + this.state.animal["animalId"].toString()} className="btn btn-secondary btn-sm">Edit</Link><Link to={"/animals/" + this.state.animal["animalId"].toString()} className="btn btn-secondary btn-sm">Remove</Link></td>
                                 <p></p>
                                 <p></p>
                             </div>

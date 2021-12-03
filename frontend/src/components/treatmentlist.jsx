@@ -39,12 +39,13 @@ class TreatmentList extends React.Component {
     // }
 
     render() {
-        // const user = this.props.match.params.user;
+        const user = this.props.match.params.user;
 
 
         return <React.Fragment>
-            {/* <NavBar user={user} /> */}
-            <NavBar />
+
+            <NavBar user={user} />
+            
             <h2 class="display-4">Treatment Logs</h2>
             <div class="row">
                 <div class="col-sm">
