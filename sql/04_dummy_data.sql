@@ -33,9 +33,12 @@ INSERT INTO users (u_userid,u_joiningdate,u_activationdate,u_terminationdate,u_f
 ("4","2017-12-11","2017-12-12",NULL,"Attendant",NULL,"B","1","attendant.b@ucalgary.ca","passw0rd",NULL,"0"),
 ("5","2018-12-31","2019-01-01","2021-09-27","Teacher",NULL,"C","3","teacher.c@ucalgary.ca","passw0rd",NULL,"0"),
 ("6","2020-04-07","2020-04-08","2023-01-03","Student",NULL,"D","4","student.d@ucalgary.ca","passw0rd",NULL,"0"),
-("7","2021-04-03","2021-04-04","2023-12-30","Student",NULL,"E","4","student.e@ucalgary.ca","passw0rd",NULL,"0");
+("7","2021-04-03","2021-04-04","2023-12-30","Student",NULL,"E","4","student.e@ucalgary.ca","passw0rd",NULL,"0"),
+("8","2021-04-04","2021-04-05","2023-12-31","Instructor1",NULL,"E","0","Instructor_1","pt@123",NULL,"1"),
+("9","2021-04-05","2021-04-06","2023-11-30","Admin1",NULL,"LName","1","Admin_1","pa",NULL,"1"),
+("10","2021-04-06","2021-04-07","2024-01-30","Tech",NULL,"LName","2","Technician","pe",NULL,"1");
 
-UPDATE sequence_users SET next_val=8;
+UPDATE sequence_users SET next_val=11;
 -- ----------------------------------------------
 
 
