@@ -1,7 +1,7 @@
 import React, { useState, Component } from 'react';
 import NavBarStart from './navbarstart';
 import {getUsers} from './../services/fakeUserService';  
-import { useHistory } from 'react-router-dom';
+
 class Login extends React.Component {
     
     state = {
@@ -24,43 +24,6 @@ class Login extends React.Component {
         this.setState({password: e.target.value})
     }
 
-    //verifyUser = getUsers().map(users => {
-    /*
-    verifyUser = (e) => {
-        
-        for (var i=0; i<this.state.users.length; i++) {
-           
-            //console.log(this.state.users[1]["emailId"])
-        
-            //role 0 is for instructor
-            if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.users[i]["password"] == this.state.users[i]["u_passwordhash"]) && (this.state.users[i]["role"] = "0")) {
-                console.log('Successful Login1');
-                //<a href="/i/menu" class="btn btn-primary"/>
-                //this.setState({ redirect: "/i/menu" });
-                
-            }
-
-            //role 1 is for admin
-            else if ((this.state.username == this.state.users["emailId"]) && (this.state.users["password"] == this.state.users["u_passwordhash"]) && (this.state.users[i]["role"] = "1")) {
-                console.log('Successful Login');
-                <a href="/a/menu" class="btn btn-primary"/>
-            }
-
-            //role 2 is for technician
-            else if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.users[i]["password"] == this.state.users["u_passwordhash"]) && (this.state.users[i]["role"] = "2")) {   
-                console.log('Successful Login');
-                <a href="/t/menu" class="btn btn-primary"/>
-            }
-
-            // else {
-            //     console.log("Incorrect credentials");
-            //     this.setState({errorMessage: "Incorrect credentials"});
-            // }
-            
-
-        }
-    }
-    */
     
     
     render() { 
@@ -87,16 +50,11 @@ class Login extends React.Component {
                 else if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.password == this.state.users[i]["u_passwordhash"]) && (this.state.users[i]["role"] == "2")) { 
                     console.log('Successful Login3');
                     hyperlink = "/t/menu" 
-                }
-                // else{
-                //     console.log("Else statment reached")
-
-                // }
+                }        
                 else {
                     console.log("Incorrect credentials");
                     errorMessage = "Current credentials are incorrect. Please continue.."
                     //this.setState({errorMessage: "Incorrect credentials"});
-                    //alert("Hello friends, this is message.");
                 ;
                 }
                 
@@ -128,9 +86,6 @@ class Login extends React.Component {
                                     
                                     <div >
                                         <a href = {hyperlink} class="btn btn-primary">Login</a>
-                                        {/* <a href="/menu" class="btn btn-primary">Login</a> */}
-                                        {/* <a  class="btn btn-primary" onclick = {(e) => this.verifyUser(e)}>Login</a> */}
-                                        {/* <button type="submit" class="btn btn-primary" onClick = {(e) => this.verifyUser(e)} >Login</button> */}
                                         <button type="submit" class="btn btn-outline-primary">Forget Password</button>
                                         
                                     </div>
