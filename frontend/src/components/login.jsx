@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import NavBarStart from './navbarstart';
 class Login extends React.Component {
     render() { 
+        console.log("Hi");
         return <React.Fragment>
             <NavBarStart/>
             <div class="container">
