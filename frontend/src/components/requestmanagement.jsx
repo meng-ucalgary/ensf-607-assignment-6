@@ -44,16 +44,25 @@ class RequestManagement extends React.Component {
     };
 
     handleAccept =(e, animal)=>{
-        this.setState({alertmsg:"  Request is Accepted for: " + animal["name"]});
+        
         const user = this.props.match.params.user;
         if(user == "t"){
-            postAnimal(animal["animalId"], "status", "TECHNICIAN_APPROVAL");
-
+            //animal["status"]="TECHNICIAN_APPROVAL";   
+            const status = {"status": "TECHNICIAN_APPROVAL"};   
+            const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"]; 
+            axios.put(link, status,{headers:{}});
+            window.location.reload(false);
+            
         } else if(user =='a'){
-            postAnimal(animal["animalId"], "status", "ACCEPTED_BY_ADMIN");
+            //animal["status"]="ACCEPTED_BY_ADMIN";   
+            const status = {"status": "ACCEPTED_BY_ADMIN"};   
+            const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"]; 
+            axios.put(link, status,{headers:{}});
+            window.location.reload(false);
+            
         }
+        this.setState({alertmsg:"  Request is Accepted for: " + animal["name"]});
         
-        this.setState({animals: getAnimals()});
   
   
         
@@ -62,8 +71,12 @@ class RequestManagement extends React.Component {
 
     handleReject =(e, animal)=>{
         this.setState({alertmsg:"  Request is rejected for: " + animal["name"]});
-        postAnimal(animal["animalId"], "status", "GREEN");
-        this.setState({animals: getAnimals()});
+        //animal["status"]="GREEN";   
+        const status = {"status": "GREEN"};   
+        const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"]; 
+        axios.put(link, status,{headers:{}});
+        window.location.reload(false);
+        this.setState({alertmsg:"  Request is rejected for: " + animal["name"]});
         
   
   

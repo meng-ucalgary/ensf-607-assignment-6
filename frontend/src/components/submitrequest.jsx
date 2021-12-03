@@ -47,9 +47,14 @@ class RequestSubmission extends React.Component {
       if(animal["status"]=="PENDING_REQUEST"|| animal["status"]=="ACCEPTED_BY_ADMIN" || animal["status"]=="TECHNICIAN_APPROVAL"||animal["status"]=="Delivered" ){
         this.setState({alertmsg:"  Request already in progress for: " + animal["name"]});
       }else{
+        
+        //animal["status"]="PENDING_REQUEST";   
+        const status = {"status": "PENDING_REQUEST"};   
+        const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"]; 
+        axios.put(link, status,{headers:{}});
         this.setState({alertmsg:"  Request is awaiting approval for: " + animal["name"]});
-        postAnimal(animal["animalId"], "status", "PENDING_REQUEST");
-        //this.setState({animals: getAnimals()});
+        window.location.reload(false);
+        
 
       }
 
@@ -61,14 +66,13 @@ class RequestSubmission extends React.Component {
     handleCancel =(e, animal)=>{
       if(animal["status"]=="PENDING_REQUEST"|| animal["status"]=="ACCEPTED_BY_ADMIN"){
         
-        
-        postAnimal(animal["animalId"], "status", "GREEN");
-        const status = { status: "GREEN" };
-        const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"];
-        const nanimals = this.state.animals;
-        //nanimals[animal["animalId"]-1]["status"] = "GREEN"
-        axios.put(link, status);
+    
+        const status = {"status": "GREEN"};   
+        const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"]; 
+        axios.put(link, status,{headers:{}});
         this.setState({alertmsg:"  Request cancelled for: " + animal["name"]});
+        window.location.reload(false);
+        
         
         
 
