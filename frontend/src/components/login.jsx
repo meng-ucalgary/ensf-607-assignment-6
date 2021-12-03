@@ -1,7 +1,6 @@
 import React, { useState, Component } from 'react';
 import axios from 'axios';
 import NavBarStart from './navbarstart';
-// import { getUsers } from './../services/fakeUserService';
 
 class Login extends React.Component {
 
@@ -39,7 +38,7 @@ class Login extends React.Component {
         if (this.state.username != "" && this.state.password != "") {
             for (var i = 0; i < this.state.users.length; i++) {
                 console.log("User: "+ this.state.users[i]["emailId"] + "  password: " +this.state.users[i]["passwordHash"]);
-                
+
 
                 //role 0 is for instructor
                 if ((this.state.username == this.state.users[i]["emailId"]) && (this.state.password == this.state.users[i]["passwordHash"]) && (this.state.users[i]["role"] == "TEACHER")) {

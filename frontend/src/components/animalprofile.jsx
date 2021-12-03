@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from "axios";
-// import { getAnimalbyId } from '../services/fakeAnimalsService';
 import ReactApexChart from 'react-apexcharts';
 import { useParams } from "react-router-dom";
 import { withRouter } from "react-router";
@@ -102,8 +101,8 @@ class AnimalProfile extends React.Component {
 
 
         return <React.Fragment>
-            <NavBar user={user} /> 
-            
+            <NavBar user={user} />
+
             <div class="container">
                 <div class="row">
                     <div class="col-sm">

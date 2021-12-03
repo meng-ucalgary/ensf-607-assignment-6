@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import {getAnimals} from '../services/fakeAnimalsService';
-import {postAnimal} from '../services/fakeAnimalsService';
 import axios from 'axios';
 import NavBar from './navbar';
 import {
