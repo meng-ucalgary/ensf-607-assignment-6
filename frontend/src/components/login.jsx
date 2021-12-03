@@ -53,7 +53,7 @@ class Login extends React.Component {
                 }        
                 else {
                     console.log("Incorrect credentials");
-                    errorMessage = "Current credentials are incorrect. Please continue.."
+                    errorMessage = "Updating.. Click Login when full credentials entered"
                     //this.setState({errorMessage: "Incorrect credentials"});
                 ;
                 }
