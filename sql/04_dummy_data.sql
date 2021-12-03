@@ -13,13 +13,14 @@ UPDATE sequence_owners SET next_val=7;
 
 -- animals --------------------------------------
 INSERT INTO animals (a_animalid,a_name,a_species,a_subspecies,a_breed,a_type,a_region,a_sex,a_birthdate,a_status,a_ownerid,a_profilepic,a_tattoonum,a_citytattoo,a_rfidnumber,a_microchipnumber,a_coatcolor,a_distinctfeature,a_continuousmedication) VALUES
-("1","Ace","Dog","Canine","German shepherd",NULL,"Spain","0","2017-12-01","0","1",NULL,"269617698","HOC sha","266951170","280286676","Black","sleeping pills","he can fly"),
-("2","Ampersand","Monkey","Ape","Capuchin monkey",NULL,"France","1","2018-12-02","3","2",NULL,"235026499","ORE esd","337506275","123933781","Brown",NULL,"high jumps"),
-("3","Bat Cow","Cow","Bovine",NULL,"Dairy","US","1","2020-04-03","0","1",NULL,"181698181","NKN sds","266386520","335668545","Brown, White",NULL,"bat-shaped patch on face"),
-("4","Comet","Horse","Gallopping","Canadian horse",NULL,"Canada","0","2017-12-11","1","3",NULL,"201373110","HIS sdm","127123163","234277856","White",NULL,"spotted"),
-("5","Krypto","Dog","Canine","Labrador retriever",NULL,"Africa","0","2018-12-31","3","3",NULL,"342871357","YSE mlc","324813826","274718671","White",NULL,NULL),
-("6","Snowy","Dog","Canine","Wire Fox Terrier",NULL,"London","1","2020-04-07","2","4",NULL,"182129899","JSD sda","262973735","247482427","White",NULL,"long ears"),
-("7","Streaky","Cat","Feline","Abyssinian",NULL,"Rome","1","2021-04-03","0","3",NULL,"162506178","DLF kjs","199834890","141860062","Orange",NULL,NULL);
+("1","Ace","Dog","Canine","German shepherd",NULL,"Spain","1","2017-12-01","3","1",NULL,"284817661","HOC sha","124266197","141540911","Black","sleeping pills","he can fly"),
+("2","Ampersand","Monkey","Ape","Capuchin monkey",NULL,"France","0","2018-12-02","2","2",NULL,"249115289","ORE esd","135883427","135423452","Brown",NULL,"high jumps"),
+("3","Bat Cow","Cow","Bovine","Unknown","Dairy","US","0","2020-04-03","2","1",NULL,"327402196","NKN sds","272321397","332236519","Brown, White",NULL,"bat-shaped patch on face"),
+("4","Comet","Horse","Gallopping","Canadian horse",NULL,"Canada","1","2017-12-11","1","3",NULL,"279737271","HIS sdm","232819886","176476558","White",NULL,"spotted"),
+("5","Krypto","Dog","Canine","Labrador retriever",NULL,"Africa","0","2018-12-31","2","3",NULL,"194622491","YSE mlc","245593643","209076579","White",NULL,NULL),
+("6","Snowy","Dog","Canine","Wire Fox Terrier",NULL,"London","1","2020-04-07","0","4",NULL,"302755398","JSD sda","174032685","206265204","White",NULL,"long ears"),
+("7","Streaky","Cat","Feline","Abyssinian",NULL,"Rome","1","2021-04-03","0","3",NULL,"139643167","DLF kjs","293578705","288563243","Orange",NULL,NULL);
+
 
 UPDATE sequence_animals SET next_val=8;
 -- ----------------------------------------------
