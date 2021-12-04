@@ -46,14 +46,14 @@ class RequestManagement extends React.Component {
         const user = this.props.match.params.user;
         if(user == "t"){
             //animal["status"]="TECHNICIAN_APPROVAL";
-            const status = {"status": "TECHNICIAN_APPROVAL"};
+            const status = {"requestStatus": "READY"};
             const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"];
             axios.put(link, status,{headers:{}});
             window.location.reload(false);
 
         } else if(user =='a'){
             //animal["status"]="ACCEPTED_BY_ADMIN";
-            const status = {"status": "ACCEPTED_BY_ADMIN"};
+            const status = {"requestStatus": "ACCEPT_BY_ADMIN"};
             const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"];
             axios.put(link, status,{headers:{}});
             window.location.reload(false);
@@ -70,7 +70,7 @@ class RequestManagement extends React.Component {
     handleReject =(e, animal)=>{
         this.setState({alertmsg:"  Request is rejected for: " + animal["name"]});
         //animal["status"]="GREEN";
-        const status = {"status": "GREEN"};
+        const status = {"requestStatus": "REJECT"};
         const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"];
         axios.put(link, status,{headers:{}});
         window.location.reload(false);
@@ -106,10 +106,10 @@ class RequestManagement extends React.Component {
         const user = this.props.match.params.user;
         let filtered = this.state.animals;
         if(user == 't'){
-            filtered = 1?this.state.animals.filter(m=>m["status"].toString().includes("ACCEPTED_BY_ADMIN") ):this.state.animals;
+            filtered = 1?this.state.animals.filter(m=>m["requestStatus"].toString().includes("ACCEPT_BY_ADMIN") ):this.state.animals;
 
         }else if(user =='a'){
-            filtered = 1?this.state.animals.filter(m=>m["status"].toString().includes("PENDING_REQUEST") ):this.state.animals;
+            filtered = 1?this.state.animals.filter(m=>m["requestStatus"].toString().includes("REQUESTED") ):this.state.animals;
         }
 
         let alert = this.state.alertmsg;
@@ -142,7 +142,7 @@ class RequestManagement extends React.Component {
                     <th>Name</th>
                     <th>Breed</th>
                     <th>Owner</th>
-                    <th>Status</th>
+                    <th>Request Status</th>
                     <th></th>
                 </tr>
             </thead>
@@ -153,7 +153,7 @@ class RequestManagement extends React.Component {
                     <td>{(animal["name"]==null) ? 'na' : animal["name"].toString()}</td>
                     <td>{(animal["breed"]==null) ? 'na' : animal["breed"].toString()}</td>
                     <td>{(animal["ownerName"]==null) ? 'na' : animal["ownerName"].toString()}</td>
-                    <td>{(animal["status"]==null) ? 'na' : animal["status"].toString()}</td>
+                    <td>{(animal["requestStatus"]==null) ? 'na' : animal["requestStatus"].toString()}</td>
 
                     <td><button onClick={(e) => this.handleAccept(e, animal)} className="btn btn-primary btn-sm">Accept</button><button onClick={(e) => this.handleReject(e, animal)} className="btn btn-primary btn-sm">Reject</button></td>
 

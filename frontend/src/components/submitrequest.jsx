@@ -42,12 +42,15 @@ class RequestSubmission extends React.Component {
 
 
     handleRequest =(e, animal)=>{
-      if(animal["status"]=="PENDING_REQUEST"|| animal["status"]=="ACCEPTED_BY_ADMIN" || animal["status"]=="TECHNICIAN_APPROVAL"||animal["status"]=="Delivered" ){
+      if(animal["requestStatus"]=="REQUESTED"|| animal["requestStatus"]=="ACCEPT_BY_ADMIN" || animal["requestStatus"]=="READY"){
         this.setState({alertmsg:"  Request already in progress for: " + animal["name"]});
-      }else{
+      }else if(animal["requestStatus"]=="REJECT" ){
+        this.setState({alertmsg:"  Request has been rejected for: " + animal["name"]});
+      }
+      else{
 
         //animal["status"]="PENDING_REQUEST";
-        const status = {"status": "PENDING_REQUEST"};
+        const status = {"requestStatus": "REQUESTED"};
         const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"];
         axios.put(link, status,{headers:{}});
         this.setState({alertmsg:"  Request is awaiting approval for: " + animal["name"]});
@@ -62,10 +65,10 @@ class RequestSubmission extends React.Component {
     };
 
     handleCancel =(e, animal)=>{
-      if(animal["status"]=="PENDING_REQUEST"|| animal["status"]=="ACCEPTED_BY_ADMIN"){
+      if(animal["requestStatus"]=="REQUESTED"|| animal["requestStatus"]=="ACCEPT_BY_ADMIN"){
 
 
-        const status = {"status": "GREEN"};
+        const status = {"requestStatus": "CANCEL"};
         const link = "http://localhost:8080/api/v1/animals/" + animal["animalId"];
         axios.put(link, status,{headers:{}});
         this.setState({alertmsg:"  Request cancelled for: " + animal["name"]});
@@ -77,18 +80,11 @@ class RequestSubmission extends React.Component {
 
 
 
-      } else if(animal["status"]=="TECHNICIAN_APPROVAL" ){
-
-        this.setState({alertmsg:"  Request cannot be cancelled for: " + animal["name"]});
-
-
-
-
       }
 
-      else if(animal["status"]=="Delivered" ){
+      else if(animal["requestStatus"]=="READY" ){
 
-        this.setState({alertmsg:"  Delivery Already Complete for: " + animal["name"]});
+        this.setState({alertmsg:"  Request past approval stages and is now ready for: " + animal["name"]});
 
 
 
@@ -135,7 +131,7 @@ class RequestSubmission extends React.Component {
         } else if (this.state.filterOption == 4) {
           filtered = 1?this.state.animals.filter(m=>m["ownerName"].toString().toLowerCase().includes(this.state.filterText.toLowerCase())):this.state.animals;
         } else if (this.state.filterOption == 5) {
-          filtered = 1?this.state.animals.filter(m=>m["status"].toString().toLowerCase().includes(this.state.filterText.toLowerCase()) ):this.state.animals;
+          filtered = 1?this.state.animals.filter(m=>m["requestStatus"].toString().toLowerCase().includes(this.state.filterText.toLowerCase()) ):this.state.animals;
         } else{
           filtered = this.state.animals;
         }
@@ -160,7 +156,7 @@ class RequestSubmission extends React.Component {
                         <option value="2">Name</option>
                         <option value="3">Breed</option>
                         <option value="4">Owner's Name</option>
-                        <option value="5">Status</option>
+                        <option value="5">Request Status</option>
                     </select>
                 </div>
 
@@ -181,7 +177,7 @@ class RequestSubmission extends React.Component {
                     <th>Name</th>
                     <th>Breed</th>
                     <th>Owner</th>
-                    <th>Status</th>
+                    <th>Request Status</th>
                     <th></th>
                 </tr>
             </thead>
@@ -192,7 +188,7 @@ class RequestSubmission extends React.Component {
                     <td>{(animal["name"]==null) ? 'na' : animal["name"].toString()}</td>
                     <td>{(animal["breed"]==null) ? 'na' : animal["breed"].toString()}</td>
                     <td>{(animal["ownerName"]==null) ? 'na' : animal["ownerName"].toString()}</td>
-                    <td>{(animal["status"]==null) ? 'na' : animal["status"].toString()}</td>
+                    <td>{(animal["requestStatus"]==null) ? 'na' : animal["requestStatus"].toString()}</td>
 
                     <td><button  onClick = {(e) => this.handleRequest(e, animal)} className="btn btn-primary btn-sm">Request</button><button  onClick = {(e) => this.handleCancel(e, animal)} className="btn btn-primary btn-sm">Cancel</button></td>
 
