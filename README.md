@@ -19,19 +19,19 @@ You can assume that there are only 3 types of animals: dogs, cats, and horses, a
 The application has three users as follows:
 
 1. Instructor
-    1. Can request an animal 
-    2. Can cancel a request
-    3. Can view available animals
+    + Can request an animal 
+    + Can cancel a request  
+    + Can view available animals  
 
 2. Admin
-    4. Can view new requests
-    5. Can Approve a request
-    6. Can reject a request
+    + Can view new requests  
+    + Can Approve a request  
+    + Can reject a request  
 
 3. Technician
-    7. Can view new requests
-    8. Can Approve a request
-    9. Can reject a request
+    + Can view new requests  
+    + Can Approve a request  
+    + Can reject a request  
 
 * Instructors can only cancel requests when their request is in "new" or "accepted_by_admin" states.
 
