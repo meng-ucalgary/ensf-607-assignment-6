@@ -27,6 +27,8 @@ import HomePage from './components/homepage';
 import CommentList from './components/commentlist';
 import RequestSubmission from './components/submitrequest';
 import RequestManagement from "./components/requestmanagement";
+import TreatmentList from './components/treatmentlist';
+import IssueList from './components/issuelist';
 
 
 
@@ -37,6 +39,8 @@ reactDom.render(
 
 
     <Switch>
+    <Route path='/:user/animals/:id/issues' component={IssueList}/> 
+    <Route path='/:user/animals/:id/treatments' component={TreatmentList}/>
     <Route path='/:user/animals/:id/comments' component={CommentList}/>
     <Route path='/:user/requestmanagment' component={RequestManagement}/>
     <Route path='/:user/requestsubmission' component={RequestSubmission}/>
