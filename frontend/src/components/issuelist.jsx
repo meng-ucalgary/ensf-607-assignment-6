@@ -40,6 +40,7 @@ class IssueList extends React.Component {
 
     render() {
         const user = this.props.match.params.user;
+        console.log(this.state.issues);
 
 
         return <React.Fragment>
